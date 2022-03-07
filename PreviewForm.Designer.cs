@@ -35,9 +35,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(631, 371);
+            this.ClientSize = new System.Drawing.Size(782, 553);
             this.Name = "PreviewForm";
             this.Text = "PreviewForm";
+            this.Load += new System.EventHandler(this.PreviewForm_Load);
+            this.Click += new System.EventHandler(this.PreviewForm_Click);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.PreviewForm_Paint);
             this.ResumeLayout(false);
 
         }
