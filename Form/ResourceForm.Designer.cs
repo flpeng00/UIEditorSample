@@ -1,6 +1,6 @@
 ﻿namespace UIEditorSample
 {
-    partial class PreviewForm
+    partial class ResourceForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.treeView_canvasResource = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
-            // PreviewForm
+            // treeView_canvasResource
+            // 
+            this.treeView_canvasResource.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_canvasResource.Location = new System.Drawing.Point(0, 0);
+            this.treeView_canvasResource.Name = "treeView_canvasResource";
+            this.treeView_canvasResource.Size = new System.Drawing.Size(247, 651);
+            this.treeView_canvasResource.TabIndex = 0;
+            // 
+            // ResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Name = "PreviewForm";
-            this.Text = "PreviewForm";
-            this.Load += new System.EventHandler(this.PreviewForm_Load);
-            this.Click += new System.EventHandler(this.PreviewForm_Click);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.PreviewForm_Paint);
+            this.ClientSize = new System.Drawing.Size(247, 651);
+            this.ControlBox = false;
+            this.Controls.Add(this.treeView_canvasResource);
+            this.Name = "ResourceForm";
+            this.Text = "Canvas";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private TreeView treeView_canvasResource;
     }
 }

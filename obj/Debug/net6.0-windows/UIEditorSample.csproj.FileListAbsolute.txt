@@ -17,3 +17,5 @@ D:\Development\UIEditorSample\obj\Debug\net6.0-windows\ref\UIEditorSample.dll
 D:\Development\UIEditorSample\obj\Debug\net6.0-windows\UIEditorSample.MainForm.resources
 D:\Development\UIEditorSample\obj\Debug\net6.0-windows\UIEditorSample.PreviewForm.resources
 D:\Development\UIEditorSample\obj\Debug\net6.0-windows\UIEditorSample.Properties.Resources.resources
+D:\Development\UIEditorSample\obj\Debug\net6.0-windows\UIEditorSample.ResourceForm.resources
+D:\Development\UIEditorSample\obj\Debug\net6.0-windows\UIEditorSample.EntryForm.resources
