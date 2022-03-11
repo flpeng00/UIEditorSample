@@ -58,10 +58,12 @@
             // treeView_entryPool
             // 
             this.treeView_entryPool.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_entryPool.HideSelection = false;
             this.treeView_entryPool.Location = new System.Drawing.Point(0, 0);
             this.treeView_entryPool.Name = "treeView_entryPool";
             this.treeView_entryPool.Size = new System.Drawing.Size(252, 297);
             this.treeView_entryPool.TabIndex = 0;
+            this.treeView_entryPool.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_entryPool_AfterSelect);
             // 
             // propertyGrid_entryPool
             // 
@@ -70,6 +72,7 @@
             this.propertyGrid_entryPool.Name = "propertyGrid_entryPool";
             this.propertyGrid_entryPool.Size = new System.Drawing.Size(252, 366);
             this.propertyGrid_entryPool.TabIndex = 0;
+            this.propertyGrid_entryPool.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGrid_entryPool_PropertyValueChanged);
             // 
             // EntryForm
             // 
@@ -91,7 +94,7 @@
         #endregion
 
         private SplitContainer entryMenuContainer;
-        private TreeView treeView_entryPool;
         private PropertyGrid propertyGrid_entryPool;
+        public TreeView treeView_entryPool;
     }
 }

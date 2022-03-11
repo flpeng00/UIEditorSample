@@ -9,22 +9,23 @@ namespace UIEditorSample
     public class WorkSpace
     {
         public MainForm mainForm;
-        public PreviewForm previewForm;
         public Entry.Works works;
         public SortedDictionary<int, Entry.Entry> entries;
         public int selectedID = -1;
 
-        public WorkSpace(MainForm mainForm, PreviewForm previewForm)
+        private static WorkSpace instance;
+        public static WorkSpace Instance()
         {
-            this.mainForm = mainForm;
-            this.previewForm = previewForm;
+            if (instance == null)
+                instance = new WorkSpace();
+            return instance;
+        }
+
+        private WorkSpace()
+        {
             entries = new SortedDictionary<int, Entry.Entry>();
             works = new Entry.Works();
             entries.Add(works.id, works);
-        }
-
-        public void Init()
-        {
         }
 
         public void AddEntry(Entry.Entry entry)
@@ -34,7 +35,7 @@ namespace UIEditorSample
             mainForm.OnEntryChanged();
         }
 
-        public Entry.Entry GetSelectedEntry()
+        public Entry.Entry? GetSelectedEntry()
         {
             if (selectedID == -1)
                 return null;
@@ -58,10 +59,20 @@ namespace UIEditorSample
 
         public void SetSelecteEntry(in int id)
         {
+            if (selectedID == id)
+                return;
             selectedID = id;
-            if (selectedID >= 0)
-                GetSelectedEntry().selected = true;
+            foreach (var pair in this.entries)
+            {
+                Entry.Entry entry = pair.Value;
+                entry.selected = entry.id == id;
+            }
             mainForm.OnEntrySelected();
+        }
+
+        public void OnEntryChanged()
+        {
+            mainForm.OnEntryChanged();
         }
     }
 }

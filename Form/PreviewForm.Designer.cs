@@ -43,6 +43,9 @@
             this.MainCanvas.TabStop = false;
             this.MainCanvas.Click += new System.EventHandler(this.MainCanvas_Click);
             this.MainCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.MainCanvas_Paint);
+            this.MainCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainCanvas_MouseDown);
+            this.MainCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainCanvas_MouseMove);
+            this.MainCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainCanvas_MouseUp);
             // 
             // PreviewForm
             // 
@@ -51,6 +54,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1348, 721);
             this.Controls.Add(this.MainCanvas);
+            this.DoubleBuffered = true;
             this.Name = "PreviewForm";
             this.Text = "PreviewForm";
             this.Load += new System.EventHandler(this.PreviewForm_Load);

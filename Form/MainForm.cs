@@ -2,7 +2,6 @@ namespace UIEditorSample
 {
     public partial class MainForm : Form
     {
-        public WorkSpace workSpace;
         public PreviewForm previewForm;
         public EntryForm entryForm;
         public ResourceForm resourceForm;
@@ -25,15 +24,15 @@ namespace UIEditorSample
             previewForm.TopLevel = false;
             previewForm.mainForm = this;
             previewForm.MdiParent = this;
-
-            workSpace = new WorkSpace(this, previewForm);
             previewForm.Show();
+
+            WorkSpace workSpace = WorkSpace.Instance();
+            workSpace.mainForm = this;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            workSpace.Init();
             entryForm.RefreshTreeView();
         }
 
@@ -59,13 +58,15 @@ namespace UIEditorSample
         public void OnEntryChanged()
         {
             entryForm.RefreshTreeView();
+            entryForm.RefreshPropertyGrid();
             previewForm.Invalidate();
         }
 
         public void OnEntrySelected()
         {
-            entryForm.RefreshTreeView();
             entryForm.RefreshPropertyGrid();
+            entryForm.OnSelectedChange();
+            previewForm.Invalidate();
         }
     }
 }

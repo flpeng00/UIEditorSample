@@ -42,8 +42,7 @@ namespace UIEditorSample
             canvas.SetImage(image);
             canvas.SetName(Path.GetFileNameWithoutExtension(canvasInfo.path));
 
-            MainForm mainForm = (MainForm)MdiParent;
-            mainForm.workSpace.AddEntry(canvas);
+            WorkSpace.Instance().AddEntry(canvas);
         }
     }
 }

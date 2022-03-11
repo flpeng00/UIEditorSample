@@ -24,13 +24,11 @@ namespace UIEditorSample.Entry
         public int id { get; private set; } = 0;
         protected string name { get; set; } = string.Empty;
         protected Type type { get; set; } = Type.None;
-        [TypeConverter(typeof(ExpandableObjectConverter))]
         public Rectangle range { get; set; } = Rectangle.Empty;
 
-        [Browsable(false)]
         public bool visible { 
             get; set; 
-        }
+        } = true;
 
         public List<Entry> childEntries = new List<Entry>();
         public bool selected { get; set; } = false;
@@ -56,6 +54,11 @@ namespace UIEditorSample.Entry
             range = rc;
         }
 
+        public Point GetLocation()
+        {
+            return range.Location;
+        }
+
         public string TypeToString(in Type type)
         {
             switch (type)
@@ -76,7 +79,7 @@ namespace UIEditorSample.Entry
             }
         }
 
-        public virtual TreeNode MakeTreeNode(TreeView treeView)
+        public virtual TreeNode MakeTreeNode()
         {
             TreeNode node = new TreeNode();
             node.Tag = this;
@@ -84,9 +87,8 @@ namespace UIEditorSample.Entry
 
             foreach (Entry childEntry in this.childEntries)
             {
-                TreeNode childNode = childEntry.MakeTreeNode(treeView);
+                TreeNode childNode = childEntry.MakeTreeNode();
                 node.Nodes.Add(childNode);
-                treeView.SelectedNode = childNode;
             }
 
             return node;
